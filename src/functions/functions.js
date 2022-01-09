@@ -192,7 +192,7 @@ function RISK_FREE_RATE(x) {
  * @param {number} clean_price Clean Price
  * @returns {number} Dirty Price
  */
-function DIRTY_PRICE(time_since_last_coupon, total_period_between_coupon, coupon_value, clean_price) {
-  const accrued_interest = (coupon_value * time_since_last_coupon) / total_period_between_coupon;
+function DIRTY_PRICE(time_since_last_coupon, total_period_between_coupon_paymnts, coupon_value, clean_price) {
+  const accrued_interest = (coupon_value * time_since_last_coupon) / total_period_between_coupon_paymnts;
   return accrued_interest + clean_price;
 }
