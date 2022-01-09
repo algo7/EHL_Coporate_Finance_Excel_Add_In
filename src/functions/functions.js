@@ -80,12 +80,3 @@ function SHARP_RATIO(rt, rf, vol) {
 function CAPM_EXPECTED_RETURN(rf, beta, rp) {
   return rf + beta * rp;
 }
-
-/**
- * test
- * @customfunction
- * @param {number} x test
- */
-function test(rf, beta, rp) {
-  return test
-}
