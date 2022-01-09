@@ -182,3 +182,17 @@ function RISK_FREE_RATE(x) {
 
   return sum / x[0].length / 100;
 }
+
+/**
+ * Calculate the dirty price of the bond
+ * @customfunction
+ * @param {number} time_since_last_coupon time since last coupon (days/weeks/months)
+ * @param {number} total_period_between_coupon period between coupon (days/weeks/months)
+ * @param {number} coupon_value Coupon Value
+ * @param {number} clean_price Clean Price
+ * @returns {number} Dirty Price
+ */
+function DIRTY_PRICE(time_since_last_coupon, total_period_between_coupon, coupon_value, clean_price) {
+  const accured_interest = (coupon_value * time_since_last_coupon) / total_period_between_coupon;
+  return accured_interest + clean_price;
+}
