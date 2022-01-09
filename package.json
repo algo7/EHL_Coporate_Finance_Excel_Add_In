@@ -9,6 +9,7 @@
   "author": "Aviv Lo",
   "scripts": {
     "build": "./clear_cache.sh && webpack --mode production",
+    "reload": "office-addin-debugging stop manifest.xml && ./clear_cache.sh && webpack --mode production && office-addin-debugging start manifest.xml desktop ",
     "build:dev": "webpack --mode development",
     "dev-server": "webpack serve --mode development",
     "lint": "office-addin-lint check",
