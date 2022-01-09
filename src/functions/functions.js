@@ -120,3 +120,43 @@ function RISK_ANNUALIZED_MONTHLY(stdev) {
 function RISK_ANNUALIZED_QUATERLY(stdev) {
   return stdev * Math.sqrt(4);
 }
+
+/**
+ * Return Annualization - Daily
+ * @customfunction
+ * @param {number} rt Return
+ * @returns {number} Annualized Return
+ */
+function RETURN_ANNUALIZED_DAILY(rt) {
+  return rt * 252;
+}
+
+/**
+ * Return Annualization - Weekly
+ * @customfunction
+ * @param {number} rt Return
+ * @returns {number} Annualized Return
+ */
+function RETURN_ANNUALIZED_WEEKLY(rt) {
+  return rt * 52;
+}
+
+/**
+ * Return Annualization - Monthly
+ * @customfunction
+ * @param {number} rt Return
+ * @returns {number} Annualized Return
+ */
+function RETURN_ANNUALIZED_MONTHLY(rt) {
+  return rt * 12;
+}
+
+/**
+ * Return Annualization - Quaterly
+ * @customfunction
+ * @param {number} rt Return
+ * @returns {number} Annualized Return
+ */
+function RETURN_ANNUALIZED_QUATERLY(rt) {
+  return rt * 4;
+}
