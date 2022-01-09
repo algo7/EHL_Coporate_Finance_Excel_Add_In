@@ -17,7 +17,7 @@
     "lint": "office-addin-lint check",
     "lint:fix": "office-addin-lint fix",
     "prettier": "office-addin-lint prettier",
-    "start": "./clear_cache.sh && npm run build & office-addin-debugging start manifest.xml",
+    "start": "npm run build & office-addin-debugging start manifest.xml",
     "start:desktop": "./clear_cache.sh && office-addin-debugging start manifest.xml desktop",
     "start:windesk": "office-addin-debugging start manifest.xml desktop",
     "start:web": "office-addin-debugging start manifest.xml web",
