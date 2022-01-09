@@ -9,7 +9,9 @@
   "author": "Aviv Lo",
   "scripts": {
     "build": "./clear_cache.sh && webpack --mode production",
+    "build:win": " webpack --mode production",
     "reload": "office-addin-debugging stop manifest.xml && ./clear_cache.sh && webpack --mode production && office-addin-debugging start manifest.xml desktop ",
+    "reload:win": "office-addin-debugging stop manifest.xml && webpack --mode production && office-addin-debugging start manifest.xml desktop ",
     "build:dev": "webpack --mode development",
     "dev-server": "webpack serve --mode development",
     "lint": "office-addin-lint check",
@@ -17,6 +19,7 @@
     "prettier": "office-addin-lint prettier",
     "start": "./clear_cache.sh && npm run build & office-addin-debugging start manifest.xml",
     "start:desktop": "./clear_cache.sh && office-addin-debugging start manifest.xml desktop",
+    "start:windesk": "office-addin-debugging start manifest.xml desktop",
     "start:web": "office-addin-debugging start manifest.xml web",
     "stop": "office-addin-debugging stop manifest.xml",
     "validate": "office-addin-manifest validate manifest.xml",
