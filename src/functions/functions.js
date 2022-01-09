@@ -162,7 +162,7 @@ function RETURN_ANNUALIZED_QUARTERLY(rt) {
 }
 
 /**
- * Calculate risk free rate
+ * Calculate the risk free rate
  * @customfunction
  * @param {number[][]} x
  * @returns {number} Risk Free Rate
