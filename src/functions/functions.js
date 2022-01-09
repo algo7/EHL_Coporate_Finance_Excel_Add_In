@@ -160,3 +160,25 @@ function RETURN_ANNUALIZED_MONTHLY(rt) {
 function RETURN_ANNUALIZED_QUARTERLY(rt) {
   return rt * 4;
 }
+
+/**
+ * Calculate risk free rate
+ * @customfunction
+ * @param {number[][]} x
+ * @returns {number} Risk Free Rate
+ */
+function RISK_FREE_RATE(x) {
+  if (x.length > 1) {
+    const flattened = x.flat();
+    const sum = flattened.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+
+    return sum / flattened.length / 100;
+  }
+  const sum = x[0].reduce(function (x, y) {
+    return x + y;
+  }, 0);
+
+  return sum / x[0].length / 100;
+}
