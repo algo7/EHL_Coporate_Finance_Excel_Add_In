@@ -75,8 +75,44 @@ function SHARP_RATIO(rt, rf, vol) {
  * @param {number} rf Risk Free Rate
  * @param {number} beta Beta
  * @param {number} rp Risk Premium
- * @returns {number}
+ * @returns {number} Expected Return
  */
 function CAPM_EXPECTED_RETURN(rf, beta, rp) {
   return rf + beta * rp;
+}
+
+/**
+ * Volatility Annualization - Daily
+ * @param {number} stdev Standard Deviation of the returns
+ * @returns {number} Annualized Risk
+ */
+function RISK_ANNUALIZED_DAILY(stdev) {
+  return stdev * Math.sqrt(252);
+}
+
+/**
+ * Volatility Annualization - Weekly
+ * @param {number} stdev Standard Deviation of the returns
+ * @returns {number} Annualized Risk
+ */
+function RISK_ANNUALIZED_WEEKLY(stdev) {
+  return stdev * Math.sqrt(52);
+}
+
+/**
+ * Volatility Annualization - Monthly
+ * @param {number} stdev Standard Deviation of the returns
+ * @returns {number} Annualized Risk
+ */
+function RISK_ANNUALIZED_MONTHLY(stdev) {
+  return stdev * Math.sqrt(12);
+}
+
+/**
+ * Volatility Annualization - Quaterly
+ * @param {number} stdev Standard Deviation of the returns
+ * @returns {number} Annualized Risk
+ */
+function RISK_ANNUALIZED_QUATERLY(stdev) {
+  return stdev * Math.sqrt(4);
 }
