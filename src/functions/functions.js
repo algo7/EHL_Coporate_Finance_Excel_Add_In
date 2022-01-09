@@ -83,6 +83,7 @@ function CAPM_EXPECTED_RETURN(rf, beta, rp) {
 
 /**
  * Volatility Annualization - Daily
+ * @customfunction
  * @param {number} stdev Standard Deviation of the returns
  * @returns {number} Annualized Risk
  */
@@ -92,6 +93,7 @@ function RISK_ANNUALIZED_DAILY(stdev) {
 
 /**
  * Volatility Annualization - Weekly
+ * @customfunction
  * @param {number} stdev Standard Deviation of the returns
  * @returns {number} Annualized Risk
  */
@@ -101,6 +103,7 @@ function RISK_ANNUALIZED_WEEKLY(stdev) {
 
 /**
  * Volatility Annualization - Monthly
+ * @customfunction
  * @param {number} stdev Standard Deviation of the returns
  * @returns {number} Annualized Risk
  */
@@ -110,6 +113,7 @@ function RISK_ANNUALIZED_MONTHLY(stdev) {
 
 /**
  * Volatility Annualization - Quaterly
+ * @customfunction
  * @param {number} stdev Standard Deviation of the returns
  * @returns {number} Annualized Risk
  */
