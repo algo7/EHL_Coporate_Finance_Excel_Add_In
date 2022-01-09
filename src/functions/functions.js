@@ -112,12 +112,12 @@ function RISK_ANNUALIZED_MONTHLY(stdev) {
 }
 
 /**
- * Volatility Annualization - Quaterly
+ * Volatility Annualization - Quarterly
  * @customfunction
  * @param {number} stdev Standard Deviation of the returns
  * @returns {number} Annualized Risk
  */
-function RISK_ANNUALIZED_QUATERLY(stdev) {
+function RISK_ANNUALIZED_QUARTERLY(stdev) {
   return stdev * Math.sqrt(4);
 }
 
@@ -152,11 +152,11 @@ function RETURN_ANNUALIZED_MONTHLY(rt) {
 }
 
 /**
- * Return Annualization - Quaterly
+ * Return Annualization - Quarterly
  * @customfunction
  * @param {number} rt Return
  * @returns {number} Annualized Return
  */
-function RETURN_ANNUALIZED_QUATERLY(rt) {
+function RETURN_ANNUALIZED_QUARTERLY(rt) {
   return rt * 4;
 }
