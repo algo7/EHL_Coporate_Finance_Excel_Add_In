@@ -343,3 +343,16 @@ function REF_CAGR_DIRECT(returns) {
 function REF_HISTORICAL_GROWTH(start_time, end_time, old_value, current_value) {
   return (current_value / old_value) ** (1 / (end_time - start_time)) - 1;
 }
+
+/**
+ * Calculate the estimated rental growth rate of a real estate asset
+ * @customfunction
+ * @param {number} historical_growth_rate The historical growth rate
+ * @param {number} real_deprication The deprication
+ * @param {number} historical_inflation The historical inflation
+ * @param {number} expected_future_inflation The expected future inflation
+ * @returns {number} The estimated rental growth rate
+ */
+function REF_RENTAL_GROWTH(historical_growth_rate, real_deprication, historical_inflation, expected_future_inflation) {
+  return historical_growth_rate - real_deprication - historical_inflation - expected_future_inflation;
+}
