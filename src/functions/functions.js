@@ -200,6 +200,7 @@ function DIRTY_PRICE(time_since_last_coupon, number_of_periods_between_coupon_pa
 // Real Estate Fianace Stuff
 /**
  * Calculate the income return of a real estate investment
+ * @customfunction
  * @param {number[][]} cash_flow Cash flow in the period
  * @param {number} end_asset_value The end of value of the asset
  * @returns {number} The income return of the investment
@@ -214,6 +215,7 @@ function REF_INCOME_RETURN(cash_flow, end_asset_value) {
 
 /**
  * Calculate the appreciation return of a real estate investment
+ * @customfunction
  * @param {number} starting_asset_value Asset value at the beginning
  * @param {number} ending_asset_value Asset value at the end
  * @returns {number} The appreciation return of the investment
@@ -225,6 +227,7 @@ function REF_APPECIATION_RETURN(starting_asset_value, ending_asset_value) {
 /**
  * Calculate the total return of a real estate investment
  * @param {number[][]} cash_flow Cash flow in the period
+ * @customfunction
  * @param {number} starting_asset_value Asset value at the beginning
  * @param {number} ending_asset_value Asset value at the end
  * @returns {number} The total return of the investment
@@ -239,6 +242,7 @@ function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
 
 /**
  * Calculate the inflation-adjusted (real) return of a real estate investment
+ * @customfunction
  * @param {number} nominal_return Nominal (total) return of the investment
  * @param {number} inflation_rate Inflation rate
  * @returns {number} The real return of the investment
@@ -248,7 +252,8 @@ function REF_REAL_RETURN(nominal_return, inflation_rate) {
 }
 
 /**
- * Calculate the arithmatic average return of a real estate investment
+ * Calculate the arithmetic average return of a real estate investment
+ * @customfunction
  * @param {number[][]} returns The return of each period
  * @returns {number} The arithmatic average return of the investment
  */
@@ -258,4 +263,30 @@ function REF_ARITHEMETIC_AVERAGE_RETURN(returns) {
   }, 0);
 
   return sum * (1 / returns.length);
+}
+
+/**
+ * Calculate the geometric average return or compound annual growth rateof a real estate investment
+ * @customfunction
+ * @param {number} initial_investment The initial investment volume
+ * @param {number} ending_asset_value The end of value of the asset
+ * @param {number} periods The number of periods
+ * @returns {number} The geometric average return / CAGR of the investment
+ */
+function REF_CAGR(initial_investment, ending_asset_value, periods) {
+  return (ending_asset_value / initial_investment) ** (1 / periods) - 1;
+}
+
+/**
+ * Calculate the CAGR of a real estate investment without investment volume
+ * @customfunction
+ * @param {number[][]} returns
+ * @returns {number} The CAGR of the investment
+ */
+function REF_CAGR_DIRECT(returns) {
+  const sum = returns.reduce(function (x, y) {
+    return (1 + x) * (1 + y);
+  }, 0);
+
+  return sum ** (1 / returns.length) - 1;
 }
