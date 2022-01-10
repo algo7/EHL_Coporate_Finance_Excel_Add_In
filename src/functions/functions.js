@@ -224,7 +224,7 @@ function REF_APPECIATION_RETURN(starting_asset_value, ending_asset_value) {
 
 /**
  * Calculate the total return of a real estate investment
- * @param {number} cash_flow Cash flow in the period
+ * @param {number[][]} cash_flow Cash flow in the period
  * @param {number} starting_asset_value Asset value at the beginning
  * @param {number} ending_asset_value Asset value at the end
  * @returns {number} The total return of the investment
@@ -235,4 +235,14 @@ function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
   }, 0);
 
   return (sum + ending_asset_value - starting_asset_value) / starting_asset_value;
+}
+
+/**
+ * Calculate the inflation-adjusted (real) return of a real estate investment
+ * @param {number} nominal_return Nominal (total) return of the investment
+ * @param {number} inflation_rate Inflation rate
+ * @returns {number} The real return of the investment
+ */
+function REF_REAL_RETURN(nominal_return, inflation_rate) {
+  return (1 + nominal_return) / (1 + inflation_rate) - 1;
 }
