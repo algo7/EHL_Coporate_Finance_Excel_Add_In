@@ -196,3 +196,43 @@ function DIRTY_PRICE(time_since_last_coupon, number_of_periods_between_coupon_pa
   const accrued_interest = (coupon_value * time_since_last_coupon) / number_of_periods_between_coupon_paymnts;
   return accrued_interest + clean_price;
 }
+
+// Real Estate Fianace Stuff
+/**
+ * Calculate the income return of a real estate investment
+ * @param {number[][]} cash_flow Cash flow in the period
+ * @param {number} end_asset_value The end of value of the asset
+ * @returns {number} The income return of the investment
+ */
+function REF_INCOME_RETURN(cash_flow, end_asset_value) {
+  const sum = cash_flow.reduce(function (x, y) {
+    return x + y;
+  }, 0);
+
+  return sum / end_asset_value;
+}
+
+/**
+ * Calculate the appreciation return of a real estate investment
+ * @param {number} starting_asset_value Asset value at the beginning
+ * @param {number} ending_asset_value Asset value at the end
+ * @returns {number} The appreciation return of the investment
+ */
+function REF_APPECIATION_RETURN(starting_asset_value, ending_asset_value) {
+  return (ending_asset_value - starting_asset_value) / starting_asset_value;
+}
+
+/**
+ * Calculate the total return of a real estate investment
+ * @param {number} cash_flow Cash flow in the period
+ * @param {number} starting_asset_value Asset value at the beginning
+ * @param {number} ending_asset_value Asset value at the end
+ * @returns {number} The total return of the investment
+ */
+function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
+  const sum = cash_flow.reduce(function (x, y) {
+    return x + y;
+  }, 0);
+
+  return (sum + ending_asset_value - starting_asset_value) / starting_asset_value;
+}
