@@ -336,12 +336,12 @@ function REF_CAGR_DIRECT(returns) {
  * @customfunction
  * @param {number} start_time The start time
  * @param {number} end_time  The end time
- * @param {number} old_value The old value of the asset
- * @param {number} current_value The current value of the asset
+ * @param {number} old_rent The old rent of the asset
+ * @param {number} current_rent The current rent of the asset
  * @returns {number} The historical growth rate
  */
-function REF_HISTORICAL_GROWTH(start_time, end_time, old_value, current_value) {
-  return (current_value / old_value) ** (1 / (end_time - start_time)) - 1;
+function REF_HISTORICAL_GROWTH(start_time, end_time, old_rent, current_rent) {
+  return (current_rent / old_rent) ** (1 / (end_time - start_time)) - 1;
 }
 
 /**
@@ -354,5 +354,5 @@ function REF_HISTORICAL_GROWTH(start_time, end_time, old_value, current_value) {
  * @returns {number} The estimated rental growth rate
  */
 function REF_RENTAL_GROWTH(historical_growth_rate, real_deprication, historical_inflation, expected_future_inflation) {
-  return historical_growth_rate - real_deprication - historical_inflation - expected_future_inflation;
+  return historical_growth_rate - real_deprication - historical_inflation + expected_future_inflation;
 }
