@@ -330,3 +330,16 @@ function REF_CAGR_DIRECT(returns) {
 
   return sum ** (1 / returns[0].length) - 1;
 }
+
+/**
+ * Calculate the historical growth rate of a real estate asset
+ * @customfunction
+ * @param {number} start_time The start time
+ * @param {number} end_time  The end time
+ * @param {number} old_value The old value of the asset
+ * @param {number} current_value The current value of the asset
+ * @returns {number} The historical growth rate
+ */
+function REF_HISTORICAL_GROWTH(start_time, end_time, old_value, current_value) {
+  return (current_value / old_value) ** (1 / (end_time - start_time)) - 1;
+}
