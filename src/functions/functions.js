@@ -206,7 +206,7 @@ function DIRTY_PRICE(time_since_last_coupon, number_of_periods_between_coupon_pa
  * @returns {number} The income return of the investment
  */
 function REF_INCOME_RETURN(cash_flow, end_asset_value) {
-  const sum = cash_flow.reduce(function (x, y) {
+  const sum = cash_flow[0].reduce(function (x, y) {
     return x + y;
   }, 0);
 
@@ -226,14 +226,14 @@ function REF_APPECIATION_RETURN(starting_asset_value, ending_asset_value) {
 
 /**
  * Calculate the total return of a real estate investment
- * @param {number[][]} cash_flow Cash flow in the period
  * @customfunction
+ * @param {number[][]} cash_flow Cash flow in the period
  * @param {number} starting_asset_value Asset value at the beginning
  * @param {number} ending_asset_value Asset value at the end
  * @returns {number} The total return of the investment
  */
 function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
-  const sum = cash_flow.reduce(function (x, y) {
+  const sum = cash_flow[0].reduce(function (x, y) {
     return x + y;
   }, 0);
 
@@ -258,11 +258,11 @@ function REF_REAL_RETURN(nominal_return, inflation_rate) {
  * @returns {number} The arithmatic average return of the investment
  */
 function REF_ARITHEMETIC_AVERAGE_RETURN(returns) {
-  const sum = returns.reduce(function (x, y) {
+  const sum = returns[0].reduce(function (x, y) {
     return x + y;
   }, 0);
 
-  return sum * (1 / returns.length);
+  return sum * (1 / returns[0].length);
 }
 
 /**
@@ -284,9 +284,12 @@ function REF_CAGR(initial_investment, ending_asset_value, periods) {
  * @returns {number} The CAGR of the investment
  */
 function REF_CAGR_DIRECT(returns) {
-  const sum = returns.reduce(function (x, y) {
-    return (1 + x) * (1 + y);
-  }, 0);
+  const sum = returns[0]
+    .map((return_p) => 1 + return_p)
+    .reduce(function (x, y) {
+      return x * y;
+    });
 
-  return sum ** (1 / returns.length) - 1;
+  console.log(sum);
+  return sum ** (1 / returns[0].length) - 1;
 }
