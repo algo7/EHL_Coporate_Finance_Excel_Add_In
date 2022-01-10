@@ -206,6 +206,15 @@ function DIRTY_PRICE(time_since_last_coupon, number_of_periods_between_coupon_pa
  * @returns {number} The income return of the investment
  */
 function REF_INCOME_RETURN(cash_flow, end_asset_value) {
+  if (cash_flow.length > 1) {
+    const flattened = cash_flow.flat();
+    const sum = flattened.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+
+    return sum / end_asset_value;
+  }
+
   const sum = cash_flow[0].reduce(function (x, y) {
     return x + y;
   }, 0);
@@ -233,6 +242,15 @@ function REF_APPECIATION_RETURN(starting_asset_value, ending_asset_value) {
  * @returns {number} The total return of the investment
  */
 function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
+  if (cash_flow.length > 1) {
+    const flattened = cash_flow.flat();
+    const sum = flattened.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+
+    return (sum + ending_asset_value - starting_asset_value) / starting_asset_value;
+  }
+
   const sum = cash_flow[0].reduce(function (x, y) {
     return x + y;
   }, 0);
@@ -258,6 +276,15 @@ function REF_REAL_RETURN(nominal_return, inflation_rate) {
  * @returns {number} The arithmatic average return of the investment
  */
 function REF_ARITHEMETIC_AVERAGE_RETURN(returns) {
+  if (returns.length > 1) {
+    const flattened = returns.flat();
+    const sum = flattened.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+
+    return sum * (1 / flattened.length);
+  }
+
   const sum = returns[0].reduce(function (x, y) {
     return x + y;
   }, 0);
@@ -284,12 +311,22 @@ function REF_CAGR(initial_investment, ending_asset_value, periods) {
  * @returns {number} The CAGR of the investment
  */
 function REF_CAGR_DIRECT(returns) {
+  if (returns.length > 1) {
+    const flattened = returns.flat();
+    const sum = flattened
+      .map((return_p) => 1 + return_p)
+      .reduce(function (x, y) {
+        return x * y;
+      });
+
+    return sum ** (1 / flattened.length) - 1;
+  }
+
   const sum = returns[0]
     .map((return_p) => 1 + return_p)
     .reduce(function (x, y) {
       return x * y;
     });
 
-  console.log(sum);
   return sum ** (1 / returns[0].length) - 1;
 }
