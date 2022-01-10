@@ -246,3 +246,16 @@ function REF_TOTAL_RETURN(cash_flow, starting_asset_value, ending_asset_value) {
 function REF_REAL_RETURN(nominal_return, inflation_rate) {
   return (1 + nominal_return) / (1 + inflation_rate) - 1;
 }
+
+/**
+ * Calculate the arithmatic average return of a real estate investment
+ * @param {number[][]} returns The return of each period
+ * @returns {number} The arithmatic average return of the investment
+ */
+function REF_ARITHEMETIC_AVERAGE_RETURN(returns) {
+  const sum = returns.reduce(function (x, y) {
+    return x + y;
+  }, 0);
+
+  return sum * (1 / returns.length);
+}
