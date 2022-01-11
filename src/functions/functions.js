@@ -293,11 +293,11 @@ function REF_ARITHEMETIC_AVERAGE_RETURN(returns) {
 }
 
 /**
- * Calculate the geometric average return or compound annual growth rateof a real estate investment
+ * Calculate the geometric average return or compound annual growth rateof a real estate investment. Can also be used to calculate depreciation.
  * @customfunction
- * @param {number} initial_investment The initial investment volume
- * @param {number} ending_asset_value The end of value of the asset
- * @param {number} periods The number of periods
+ * @param {number} initial_investment The initial investment volume / Rent of the younger property
+ * @param {number} ending_asset_value The end of value of the asset / Rent of the older property
+ * @param {number} periods The number of periods / Age of the old property - the age of the younger property
  * @returns {number} The geometric average return / CAGR of the investment
  */
 function REF_CAGR(initial_investment, ending_asset_value, periods) {
@@ -332,10 +332,10 @@ function REF_CAGR_DIRECT(returns) {
 }
 
 /**
- * Calculate the historical growth rate of a real estate asset
+ * Calculate the historical growth rate of a real estate asset. Can also be used to calculate depreciation.
  * @customfunction
- * @param {number} start_time The start time
- * @param {number} end_time  The end time
+ * @param {number} start_time The start time / Age of the younger property
+ * @param {number} end_time  The end time / Age of the older property
  * @param {number} old_rent The old rent of the asset
  * @param {number} current_rent The current rent of the asset
  * @returns {number} The historical growth rate
