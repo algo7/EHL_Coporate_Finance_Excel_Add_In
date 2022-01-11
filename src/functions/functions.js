@@ -366,7 +366,7 @@ function REF_RENTAL_GROWTH(historical_growth_rate, real_deprication, historical_
  * @param {number} equity_percentage Equity percentage / ratio
  * @returns {number} The WACC
  */
-function WACC(rd, re, debt_percentage, equity_percentage) {
+function REF_WACC(rd, re, debt_percentage, equity_percentage) {
   return rd * debt_percentage + re * equity_percentage;
 }
 
@@ -378,8 +378,8 @@ function WACC(rd, re, debt_percentage, equity_percentage) {
  * @param {number} re Return on equity
  * @returns {number} The WACC
  */
-function WACC_FROM_LTV(ltv, rd, re) {
-  return WACC(rd, re, ltv, 1 - ltv);
+function REF_WACC_FROM_LTV(ltv, rd, re) {
+  return REF_WACC(rd, re, ltv, 1 - ltv);
 }
 
 /**
@@ -390,6 +390,6 @@ function WACC_FROM_LTV(ltv, rd, re) {
  * @param {number} rp Return on property / WACC / discout rate
  * @returns {number} The return on equity
  */
-function RE_FROM_WACC(ltv, rd, rp) {
+function REF_FROM_WACC(ltv, rd, rp) {
   return rp + (ltv / (1 - ltv)) * (rp - rd);
 }
