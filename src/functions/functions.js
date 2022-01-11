@@ -356,3 +356,15 @@ function REF_HISTORICAL_GROWTH(start_time, end_time, old_rent, current_rent) {
 function REF_RENTAL_GROWTH(historical_growth_rate, real_deprication, historical_inflation, expected_future_inflation) {
   return historical_growth_rate - real_deprication - historical_inflation + expected_future_inflation;
 }
+
+/**
+ * Calculate the return on equity from WACC
+ * @customfunction
+ * @param {number} ltv Loan to value ratio
+ * @param {number} rd Return on debt / cost of debt
+ * @param {number} rp Return on property / WACC / discout rate
+ * @returns {number} The return on equity
+ */
+function RE_FROM_WACC(ltv, rd, rp) {
+  return rp + (ltv / (1 - ltv)) * (rp - rd);
+}
