@@ -393,3 +393,25 @@ function REF_WACC_FROM_LTV(ltv, rd, re) {
 function REF_FROM_WACC(ltv, rd, rp) {
   return rp + (ltv / (1 - ltv)) * (rp - rd);
 }
+
+/**
+ * Convert NOI-based cap rate to PBTCF cap rate given the capex as a percentage of NOI
+ * @customfunction
+ * @param {number} noi_cap_rate NOI-based cap rate
+ * @param {number} capex_percentage Capex as a percentage of NOI
+ * @returns {number} PBTCF-based cap rate
+ */
+function REF_CAP_RATE_NOI_TO_PBTCF(noi_cap_rate, capex_percentage) {
+  return (noi_cap_rate * (1 - capex_percentage)) / 1;
+}
+
+/**
+ * Conver PBTCF-based cap rate to NOI-based cap rate given the capex as a percentage of NOI
+ * @customfunction
+ * @param {number} pbcf_cap_rate PBTCF-based cap rate
+ * @param {number} capex_percentage Capex as a percentage of NOI
+ * @returns {number} NOI-based cap rate
+ */
+function REF_CAP_RATE_PBTCF_TO_NOI(pbcf_cap_rate, capex_percentage) {
+  return pbcf_cap_rate / (1 - capex_percentage);
+}
