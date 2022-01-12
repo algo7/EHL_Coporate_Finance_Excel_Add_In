@@ -1,1 +1,0 @@
-### Collection of functions that simplifies the calculations in EHL's Coporate Finance course.

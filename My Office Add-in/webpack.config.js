@@ -39,7 +39,7 @@ module.exports = async (env, options) => {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader", 
+            loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
             },
@@ -65,19 +65,14 @@ module.exports = async (env, options) => {
         input: "./src/functions/functions.js",
       }),
       new HtmlWebpackPlugin({
-        filename: "functions.html",
-        template: "./src/functions/functions.html",
-        chunks: ["polyfill", "functions"],
-      }),
-      new HtmlWebpackPlugin({
         filename: "taskpane.html",
         template: "./src/taskpane/taskpane.html",
-        chunks: ["polyfill", "taskpane"],
+        chunks: ["polyfill", "taskpane", "functions", "commands"],
       }),
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: "assets/icon-*",
+            from: "assets/*",
             to: "assets/[name][ext][query]",
           },
           {
@@ -92,11 +87,6 @@ module.exports = async (env, options) => {
             },
           },
         ],
-      }),
-      new HtmlWebpackPlugin({
-        filename: "commands.html",
-        template: "./src/commands/commands.html",
-        chunks: ["polyfill", "commands"],
       }),
     ],
     devServer: {
