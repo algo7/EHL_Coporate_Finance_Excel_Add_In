@@ -390,7 +390,7 @@ function REF_WACC_FROM_LTV(ltv, rd, re) {
  * @param {number} rp Return on property / WACC / discout rate
  * @returns {number} The return on equity
  */
-function REF_FROM_WACC(ltv, rd, rp) {
+function REF_RE_FROM_WACC(ltv, rd, rp) {
   return rp + (ltv / (1 - ltv)) * (rp - rd);
 }
 
