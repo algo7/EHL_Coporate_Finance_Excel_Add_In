@@ -415,3 +415,26 @@ function REF_CAP_RATE_NOI_TO_PBTCF(noi_cap_rate, capex_percentage) {
 function REF_CAP_RATE_PBTCF_TO_NOI(pbcf_cap_rate, capex_percentage) {
   return pbcf_cap_rate / (1 - capex_percentage);
 }
+
+/**
+ * Calculate the maxmium loan amount based on LTV creteria
+ * @customfunction
+ * @param {number} ltv The Loan to Value ratio
+ * @param {number} market_value The market value of the asset
+ * @returns {number} The loan amount
+ */
+function LTV_DEBT(ltv, market_value) {
+  return ltv * market_value
+}
+
+/**
+ * Calculate the maximum loan amount based on the DSCR creteria
+ * @customfunction
+ * @param {number} noi The net operating income
+ * @param {number} dscr The debt service coverage ratio
+ * @param {number} interest_rate The interest rate
+ * @returns {number} The loan amount
+ */
+function DSCR_DEBT(noi, dscr, interest_rate) {
+  return (noi / dscr) / interest_rate
+}
