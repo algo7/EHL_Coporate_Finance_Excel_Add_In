@@ -438,3 +438,13 @@ function LTV_DEBT(ltv, market_value) {
 function DSCR_DEBT(noi, dscr, interest_rate) {
   return (noi / dscr) / interest_rate
 }
+
+/**
+ * Calculate the maximum annual debt service based on the DSCR creteria
+ * @param {number} noi The net operating income 
+ * @param {number} dscr The debt service coverage ratio
+ * @returns {number} The maximum annual debt service
+ */
+function DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
+  return noi / dscr
+}
