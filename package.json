@@ -10,7 +10,7 @@
   "scripts": {
     "build": "./clear_cache.sh && webpack --mode production",
     "build:win": " webpack --mode production",
-    "reload": "office-addin-debugging stop manifest.xml && ./clear_cache.sh && webpack --mode production && office-addin-debugging start manifest.xml desktop ",
+    "reload": "office-addin-debugging stop manifest.xml && ./clear_cache.sh && webpack --mode production && office-addin-debugging start manifest.xml",
     "reload:win": "office-addin-debugging stop manifest.xml && webpack --mode production && office-addin-debugging start manifest.xml desktop ",
     "build:dev": "webpack --mode development",
     "dev-server": "webpack serve --mode development",
