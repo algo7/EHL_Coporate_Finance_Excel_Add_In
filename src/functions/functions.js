@@ -383,14 +383,14 @@ function REF_WACC_FROM_LTV(ltv, rd, re) {
 }
 
 /**
- * Calculate the return on equity from WACC
+ * Calculate the return on equity of a property given LTV and return on property
  * @customfunction
  * @param {number} ltv Loan to value ratio
  * @param {number} rd Return on debt / cost of debt
  * @param {number} rp Return on property / WACC / discout rate
  * @returns {number} The return on equity
  */
-function REF_RE_FROM_WACC(ltv, rd, rp) {
+function REF_RE(ltv, rd, rp) {
   return rp + (ltv / (1 - ltv)) * (rp - rd);
 }
 
