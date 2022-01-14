@@ -460,3 +460,14 @@ function REF_DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
 function REF_INT_RATE_FROM_LTV(ltv, re, rp) {
   return (-re + rp) / ltv + re
 }
+
+/**
+ * Calculate the depreciation rate of a property based on holding period
+ * @customfunction
+ * @param {number} building_value 
+ * @param {number} holding_period 
+ * @returns {number} The depreciation rate
+ */
+function REF_DEP_EXPENSE(building_value, holding_period) {
+  return building_value / holding_period
+}
