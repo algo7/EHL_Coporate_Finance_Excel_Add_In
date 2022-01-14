@@ -489,7 +489,7 @@ function REF_INT_RATE_FROM_LTV(ltv, re, rp) {
 }
 
 /**
- * Calculate the depreciation rate of a property based on holding period
+ * Calculate the depreciation rate per unit of holding period of a property based on holding period
  * @customfunction
  * @param {number} building_value 
  * @param {number} holding_period 
