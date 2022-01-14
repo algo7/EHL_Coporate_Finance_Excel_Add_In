@@ -96,7 +96,7 @@
       <bt:ShortStrings>
         <bt:String id="Functions.Namespace" DefaultValue="CS"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with the CS add-in!"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="Add-Ins"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="CS Library"/>
       </bt:ShortStrings>
       <bt:LongStrings>
