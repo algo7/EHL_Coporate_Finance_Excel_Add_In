@@ -448,3 +448,15 @@ function DSCR_DEBT(noi, dscr, interest_rate) {
 function DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
   return noi / dscr
 }
+
+/**
+ * Calculate the intrest rate of a loan based on LTV
+ * @customfunction
+ * @param {number} ltv Loan to value ratio
+ * @param {number} re Return on equity
+ * @param {number} rp Return on property
+ * @returns {number} The intrest rate
+ */
+function INT_RATE_FROM_LTV(ltv, re, rp) {
+  return (-re + rp) / ltv + re
+}
