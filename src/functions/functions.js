@@ -383,6 +383,33 @@ function REF_WACC_FROM_LTV(ltv, rd, re) {
 }
 
 /**
+ * Calculate WACC after tax
+ * @customfunction
+ * @param {number} rd Return on debt / cost of debt
+ * @param {number} re Return on equity
+ * @param {number} debt_percentage Debt percentage / ratio
+ * @param {number} equity_percentage Equity percentage / ratio
+ * @param {number} tax_rate Tax rate  
+ * @returns {number} The WACC
+ */
+function REF_AFT_TAX_WACC(rd, re, debt_percentage, equity_percentage, tax_rate) {
+  return re * equity_percentage * debt_percentage * rd * (1 - tax_rate)
+}
+
+/**
+ * Calculate WACC after tax from LTV
+ * @customfunction
+ * @param {number} ltv Loan-to-value ratio 
+ * @param {number} re Return on equity
+ * @param {number} rd Return on debt / cost of debt
+ * @param {number} tax_rate Tax rate 
+ * @returns {number} WACC after tax
+ */
+function REF_AFT_TAX_WACC_FROM_LTV(ltv, re, rd, tax_rate) {
+  return (1 - ltv) * re + ltv * rd * (1 - tax_rate);
+}
+
+/**
  * Calculate the return on equity of a property given LTV and return on property
  * @customfunction
  * @param {number} ltv Loan to value ratio
