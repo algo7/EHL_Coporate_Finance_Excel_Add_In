@@ -493,8 +493,21 @@ function REF_INT_RATE_FROM_LTV(ltv, re, rp) {
  * @customfunction
  * @param {number} asset_value The asset value
  * @param {number} asset_useful_life The asset useful life (years, months, days)
- * @returns {number} The depreciation rate
+ * @returns {number} The depreciation expesne
  */
 function REF_DEP_EXPENSE(asset_value, asset_useful_life) {
   return asset_value / asset_useful_life
+}
+
+/**
+ * Calculate the remaining book value of an asset given the asset useful life, and the holding period
+ * @customfunction
+ * @param {number} land_value The land value
+ * @param {number} building_value building value
+ * @param {number} asset_useful_life The asset useful life (years, months, days)
+ * @param {number} holding_period The holding period (years, months, days) - Same unit as asset_useful_life
+ * @returns {number} The remaining book value of the asset
+ */
+function REF_ASSET_REMAINING_BOOK_VALUE(land_value, building_value, asset_useful_life, holding_period) {
+  return (land_value + building_value) - (building_value / asset_useful_life) * holding_period
 }
