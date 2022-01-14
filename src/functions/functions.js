@@ -489,12 +489,12 @@ function REF_INT_RATE_FROM_LTV(ltv, re, rp) {
 }
 
 /**
- * Calculate the depreciation rate per unit of holding period of a property based on holding period
+ * Calculate the depreciation expense of a property per unit of asset useful life
  * @customfunction
- * @param {number} building_value 
- * @param {number} holding_period 
+ * @param {number} asset_value The asset value
+ * @param {number} asset_useful_life The asset useful life (years, months, days)
  * @returns {number} The depreciation rate
  */
-function REF_DEP_EXPENSE(building_value, holding_period) {
-  return building_value / holding_period
+function REF_DEP_EXPENSE(asset_value, asset_useful_life) {
+  return asset_value / asset_useful_life
 }
