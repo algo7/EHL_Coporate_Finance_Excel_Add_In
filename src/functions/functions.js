@@ -423,7 +423,7 @@ function REF_CAP_RATE_PBTCF_TO_NOI(pbcf_cap_rate, capex_percentage) {
  * @param {number} market_value The market value of the asset
  * @returns {number} The loan amount
  */
-function LTV_DEBT(ltv, market_value) {
+function REF_LTV_DEBT(ltv, market_value) {
   return ltv * market_value
 }
 
@@ -435,7 +435,7 @@ function LTV_DEBT(ltv, market_value) {
  * @param {number} interest_rate The interest rate
  * @returns {number} The loan amount
  */
-function DSCR_DEBT(noi, dscr, interest_rate) {
+function REF_DSCR_DEBT(noi, dscr, interest_rate) {
   return (noi / dscr) / interest_rate
 }
 
@@ -445,7 +445,7 @@ function DSCR_DEBT(noi, dscr, interest_rate) {
  * @param {number} dscr The debt service coverage ratio
  * @returns {number} The maximum annual debt service
  */
-function DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
+function REF_DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
   return noi / dscr
 }
 
@@ -457,6 +457,6 @@ function DSCR_MAX_ANNUAL_DEBT_SERVICE(noi, dscr) {
  * @param {number} rp Return on property
  * @returns {number} The intrest rate
  */
-function INT_RATE_FROM_LTV(ltv, re, rp) {
+function REF_INT_RATE_FROM_LTV(ltv, re, rp) {
   return (-re + rp) / ltv + re
 }
