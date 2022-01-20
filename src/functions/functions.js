@@ -1,7 +1,4 @@
-﻿/* eslint-disable no-unused-vars */
-/* global console setInterval, clearInterval */
-
-/**
+﻿/**
  * DDM 2 Stage Growth
  * @customfunction
  * @param {number} growth_rate_1 Growth rate in the beginning
