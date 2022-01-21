@@ -447,7 +447,7 @@ function REF_CAP_RATE_PBTCF_TO_NOI(pbcf_cap_rate, capex_percentage) {
  * @param {number} market_value The market value of the asset
  * @returns {number} The loan amount
  */
-function REF_LTV_DEBT(ltv, market_value) {
+function REF_LTV_LOAN(ltv, market_value) {
   return ltv * market_value
 }
 
@@ -459,7 +459,7 @@ function REF_LTV_DEBT(ltv, market_value) {
  * @param {number} interest_rate The interest rate
  * @returns {number} The loan amount
  */
-function REF_DSCR_DEBT(noi, dscr, interest_rate) {
+function REF_DSCR_LOAN(noi, dscr, interest_rate) {
   return (noi / dscr) / interest_rate
 }
 
