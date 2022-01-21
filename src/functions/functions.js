@@ -508,3 +508,15 @@ function REF_DEP_EXPENSE(asset_value, asset_useful_life) {
 function REF_ASSET_REMAINING_BOOK_VALUE(land_value, building_value, asset_useful_life, holding_period) {
   return (land_value + building_value) - (building_value / asset_useful_life) * holding_period
 }
+
+/**
+ * Calculate the refinancing new loan amount
+ * @customfunction
+ * @param {number} olb the old loan balance
+ * @param {number} pp The prepayment penalty percentage
+ * @param {number} og The origination fee percentage
+ * @returns {number} The new loan amount
+ */
+function REF_REFINANCING_NEW_LOAN_AMOUNT(olb, pp, og,) {
+  return olb * (1 + pp) / (1 - og)
+}

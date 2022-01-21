@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="EHL Coporate Finance"/>
+  <DisplayName DefaultValue="EHL Real Estate Finance"/>
   <Description DefaultValue="Collection of functions that simplifies the calculations in EHL's Coporate Finance course."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
@@ -97,7 +97,7 @@
         <bt:String id="Functions.Namespace" DefaultValue="CS"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with the CS add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Add-Ins"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="CS Library"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="REF Library"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Add-in loaded succesfully."/>
