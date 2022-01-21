@@ -419,13 +419,13 @@ function REF_RE(ltv, rd, rp) {
 }
 
 /**
- * Convert NOI-based cap rate to PBTCF cap rate given the capex as a percentage of NOI
+ * Calculate adjusted cap rate (NOI => PBCTF) given the capex as a percentage of NOI
  * @customfunction
  * @param {number} noi_cap_rate NOI-based cap rate
  * @param {number} capex_percentage Capex as a percentage of NOI
  * @returns {number} PBTCF-based cap rate
  */
-function REF_CAP_RATE_NOI_TO_PBTCF(noi_cap_rate, capex_percentage) {
+function REF_ADJUSTED_CAP_RATE(noi_cap_rate, capex_percentage) {
   return (noi_cap_rate * (1 - capex_percentage)) / 1;
 }
 
