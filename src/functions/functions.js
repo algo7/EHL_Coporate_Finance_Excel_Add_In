@@ -75,7 +75,7 @@ function CAPM_EXPECTED_RETURN(rf, beta, rp) {
  * @param {number} period 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Quarterly
  * @returns {number} Annualized Risk
  */
-function RISK_ANNUALIZED_DAILY(stdev, period) {
+function RISK_ANNUALIZED(stdev, period) {
   switch (period) {
     case 1:
       return stdev * Math.sqrt(252);
@@ -95,7 +95,7 @@ function RISK_ANNUALIZED_DAILY(stdev, period) {
  * @param {number} period 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Quarterly
  * @returns {number} Annualized Return
  */
-function RETURN_ANNUALIZED_DAILY(rt, period) {
+function RETURN_ANNUALIZED(rt, period) {
   switch (period) {
     case 1:
       return rt * 252;
