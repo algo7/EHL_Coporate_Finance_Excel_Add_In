@@ -194,6 +194,18 @@ function DIRTY_PRICE(time_since_last_coupon, number_of_periods_between_coupon_pa
   return accrued_interest + clean_price;
 }
 
+/**
+ * Calculate bid-ask spread
+ * @customfunction
+ * @param {number} bid_price Bid price
+ * @param {number} ask_price Ask Price
+ * @returns {number} The spread
+ */
+function BID_ASK(bid_price, ask_price) {
+  return (ask_price - bid_price) / ((ask_price + bid_price) / 2);
+}
+
+
 // Real Estate Fianace Stuff
 // /**
 //  * Calculate the income return of a real estate investment
