@@ -95,9 +95,9 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Functions.Namespace" DefaultValue="CS"/>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with the CS add-in!"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with the CF add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Add-Ins"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="REF Library"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="CF Library"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Add-in loaded succesfully."/>
