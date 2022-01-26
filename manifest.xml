@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="EHL Real Estate Finance"/>
+  <DisplayName DefaultValue="EHL Coporate Finance"/>
   <Description DefaultValue="Collection of functions that simplifies the calculations in EHL's Coporate Finance course."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
