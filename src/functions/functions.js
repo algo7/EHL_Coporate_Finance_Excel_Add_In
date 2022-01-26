@@ -34,7 +34,7 @@ function DDM_2STAGE(growth_rate_1, growth_rate_2, required_return, period, start
 /**
  * DDM Constant Growth
  * @customfunction
- * @param {number} x
+ * @param {number} x Last value
  * @param {number} required_return Required Return
  * @param {number} growth_rate Growth Rate
  * @returns {number} Evaluation
