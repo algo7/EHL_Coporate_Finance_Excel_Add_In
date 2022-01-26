@@ -69,83 +69,43 @@ function CAPM_EXPECTED_RETURN(rf, beta, rp) {
 }
 
 /**
- * Volatility Annualization - Daily
+ * Volatility Annualization
  * @customfunction
  * @param {number} stdev Standard Deviation of the returns
+ * @param {number} period 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Quarterly
  * @returns {number} Annualized Risk
  */
-function RISK_ANNUALIZED_DAILY(stdev) {
-  return stdev * Math.sqrt(252);
+function RISK_ANNUALIZED_DAILY(stdev, period) {
+  switch (period) {
+    case 1:
+      return stdev * Math.sqrt(252);
+    case 2:
+      return stdev * Math.sqrt(52);
+    case 3:
+      return stdev * Math.sqrt(12);
+    case 4:
+      return stdev * Math.sqrt(4);
+  }
 }
 
 /**
- * Volatility Annualization - Weekly
- * @customfunction
- * @param {number} stdev Standard Deviation of the returns
- * @returns {number} Annualized Risk
- */
-function RISK_ANNUALIZED_WEEKLY(stdev) {
-  return stdev * Math.sqrt(52);
-}
-
-/**
- * Volatility Annualization - Monthly
- * @customfunction
- * @param {number} stdev Standard Deviation of the returns
- * @returns {number} Annualized Risk
- */
-function RISK_ANNUALIZED_MONTHLY(stdev) {
-  return stdev * Math.sqrt(12);
-}
-
-/**
- * Volatility Annualization - Quarterly
- * @customfunction
- * @param {number} stdev Standard Deviation of the returns
- * @returns {number} Annualized Risk
- */
-function RISK_ANNUALIZED_QUARTERLY(stdev) {
-  return stdev * Math.sqrt(4);
-}
-
-/**
- * Return Annualization - Daily
+ * Return Annualization
  * @customfunction
  * @param {number} rt Return
+ * @param {number} period 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Quarterly
  * @returns {number} Annualized Return
  */
-function RETURN_ANNUALIZED_DAILY(rt) {
-  return rt * 252;
-}
-
-/**
- * Return Annualization - Weekly
- * @customfunction
- * @param {number} rt Return
- * @returns {number} Annualized Return
- */
-function RETURN_ANNUALIZED_WEEKLY(rt) {
-  return rt * 52;
-}
-
-/**
- * Return Annualization - Monthly
- * @customfunction
- * @param {number} rt Return
- * @returns {number} Annualized Return
- */
-function RETURN_ANNUALIZED_MONTHLY(rt) {
-  return rt * 12;
-}
-
-/**
- * Return Annualization - Quarterly
- * @customfunction
- * @param {number} rt Return
- * @returns {number} Annualized Return
- */
-function RETURN_ANNUALIZED_QUARTERLY(rt) {
-  return rt * 4;
+function RETURN_ANNUALIZED_DAILY(rt, period) {
+  switch (period) {
+    case 1:
+      return rt * 252;
+    case 2:
+      return rt * 52;
+    case 3:
+      return rt * 12;
+    case 4:
+      return rt * 4;
+  }
 }
 
 /**
