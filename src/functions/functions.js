@@ -43,16 +43,6 @@ function DDM_CONSTANT_GROWTH(x, growth_rate, required_return) {
   return (x * (1 + growth_rate)) / (required_return - growth_rate);
 }
 
-/**
- * DDM Constant Growth
- * @customfunction
- * @param {number} x
- * @param {number} required_return Required Return
- * @returns {number} Evaluation
- */
-function DDM_ZERO_GROWTH(x, required_return) {
-  return x / required_return;
-}
 
 /**
  * Sharpe Ratio
@@ -208,7 +198,7 @@ function BID_ASK(bid_price, ask_price) {
 /**
  * Calculate the rate of return of a constant perpetuity
  * @customfunction
- * @param {number} [cf0] Cash Flow of the first period => 0 or not required when paid at the end of the period
+ * @param {number} cf0 Cash Flow of the first period => 0 when paid at the end of the period
  * @param {number} cf1 Cash Flow of the second period
  * @param {number} pv The present value
  * @param {number} type 0 = begining of period, 1 = end of period 
@@ -219,6 +209,50 @@ function PERPETUITY_CONSTANT_RATE(cf0, cf1, pv, type) {
     return cf1 / (pv - cf0)
   }
   return cf1 / pv
+}
+
+/**
+ * Calculate the present value of a constant perpetuity
+ * @customfunction
+ * @param {number} cf0 Cash Flow of the first period => 0 when paid at the end of the period
+ * @param {number} cf1 Cash Flow of the second period
+ * @param {number} rate The rate of return
+ * @param {number} type 0 = begining of period, 1 = end of period
+ * @returns {number} The present value
+ */
+function PERPETUITY_CONSTANT_PV(cf0, cf1, rate, type) {
+  if (type === 0) {
+    return cf0 + (cf1 / rate)
+  }
+  return cf1 / rate
+}
+
+/**
+ * Calculate the present value of a growth perpetuity
+ * @customfunction
+ * @param {number} cf0 Cash Flow of the first period => 0 when paid at the end of the period
+ * @param {number} cf1 Cash Flow of the second period
+ * @param {number} rate_of_return The rate of return
+ * @param {number} growth_rate The growth rate
+ * @param {number} type 0 = begining of period, 1 = end of period
+ * @returns {number} The present value
+ */
+function PERPETUITY_GROWTH_PV(cf0, cf1, rate_of_return, growth_rate, type) {
+  if (type === 0) {
+    return cf0 + (cf1 / (rate_of_return - growth_rate))
+  }
+  return cf1 / (rate_of_return - growth_rate)
+}
+
+/**
+ * Calculate the profitibility index
+ * @customfunction
+ * @param {number} npv The net present value of the project
+ * @param {number} initial_investment The initial investment amount
+ * @returns {number} The profitibility index
+ */
+function PROFITABILITY_INDEX(npv, initial_investment) {
+  return 1 + (npv / Math.abs(initial_investment))
 }
 
 
