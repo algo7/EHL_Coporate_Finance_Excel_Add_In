@@ -77,9 +77,9 @@ function AVG_RETURN(x) {
 }
 
 /**
- * Calculate the average volatility of a stock
+ * Calculate the average volatility of a stock [can differ from stdev.s], not recommended
  * @customfunction
- * @param {number} x 
+ * @param {number[][]} x 
  * @returns {number} The average volatility
  */
 function AVG_VOLATILITY(x) {
