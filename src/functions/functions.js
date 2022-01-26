@@ -43,6 +43,89 @@ function DDM_CONSTANT_GROWTH(x, growth_rate, required_return) {
   return (x * (1 + growth_rate)) / (required_return - growth_rate);
 }
 
+/**
+ * Calculate the average return of a stock
+ * @customfunction
+ * @param {number[][]} x Stock Price
+ * @returns {number} The average return of the stock
+ */
+function AVG_RETURN(x) {
+  if (x.length > 1) {
+    const flattened = x.flat();
+    const return_per_period = []
+    for (let i = 1; i < flattened.length; i++) {
+      return_per_period.push((flattened[i] - flattened[i - 1]) / flattened[i - 1])
+    }
+
+    const sum = return_per_period.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+
+    return sum / return_per_period.length;
+  }
+
+  const return_per_period = []
+  for (let i = 1; i < x[0].length; i++) {
+    return_per_period.push((x[0][i] - x[0][i - 1]) / x[0][i - 1])
+  }
+
+  const sum = return_per_period.reduce(function (x, y) {
+    return x + y;
+  }, 0);
+
+  return sum / return_per_period.length;
+}
+
+/**
+ * Calculate the average volatility of a stock
+ * @customfunction
+ * @param {number} x 
+ * @returns {number} The average volatility
+ */
+function AVG_VOLATILITY(x) {
+  if (x.length > 1) {
+    const flattened = x.flat();
+    const return_per_period = []
+    for (let i = 1; i < flattened.length; i++) {
+      return_per_period.push((flattened[i] - flattened[i - 1]) / flattened[i - 1])
+    }
+
+    const mean = return_per_period.reduce(function (x, y) {
+      return x + y;
+    }, 0) / return_per_period.length;
+
+    // Assigning (value - mean) ^ 2 to every array item
+    const xx = return_per_period.map((k) => {
+      return (k - mean) ** 2
+    })
+
+    // Calculating the sum of updated array
+    let sum2 = xx.reduce((acc, curr) => acc + curr, 0);
+
+    // Returning the Standered deviation
+    return Math.sqrt(sum2 / xx.length)
+  }
+
+  const return_per_period = []
+  for (let i = 1; i < flattened.length; i++) {
+    return_per_period.push((x[0][i] - x[0][i - 1]) / x[0][i - 1])
+  }
+
+  const mean = return_per_period.reduce(function (x, y) {
+    return x + y;
+  }, 0) / return_per_period.length;
+
+  // Assigning (value - mean) ^ 2 to every array item
+  const xx = return_per_period.map((k) => {
+    return (k - mean) ** 2
+  })
+
+  // Calculating the sum of updated array
+  let sum2 = xx.reduce((acc, curr) => acc + curr, 0);
+
+  // Returning the Standered deviation
+  return Math.sqrt(sum2 / xx.length)
+}
 
 /**
  * Sharpe Ratio
