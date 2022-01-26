@@ -128,6 +128,22 @@ function AVG_VOLATILITY(x) {
 }
 
 /**
+ * Calculate the volatility of a portfolio of 2 assets
+ * @customfunction
+ * @param {number} volatility_1 Volatility of the first asset
+ * @param {number} volatility_2 Volatility of the second asset
+ * @param {number} weight Weight of the first asset
+ * @param {number} correlation The correlation of the two assets
+ * @returns {number} Volatility of the portfolio
+ */
+function PORTFOLIO_RISK(volatility_1, volatility_2, weight, correlation) {
+  const weight_1 = weight
+  const weight_2 = 1 - weight
+  return Math.sqrt((volatility_1 * weight_1) ** 2 + (volatility_2 * weight_2) ** 2 + 2 * weight_1 * weight_2 * volatility_1 * volatility_2 * correlation);
+}
+
+
+/**
  * Sharpe Ratio
  * @customfunction
  * @param {number} rt Return
