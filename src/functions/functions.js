@@ -205,6 +205,22 @@ function BID_ASK(bid_price, ask_price) {
   return (ask_price - bid_price) / ((ask_price + bid_price) / 2);
 }
 
+/**
+ * Calculate the rate of return of a constant perpetuity
+ * @customfunction
+ * @param {number} [cf0] Cash Flow of the first period => 0 or not required when paid at the end of the period
+ * @param {number} cf1 Cash Flow of the second period
+ * @param {number} pv The present value
+ * @param {number} type 0 = begining of period, 1 = end of period 
+ * @returns {number} The rate of return
+ */
+function PERPETUITY_CONSTANT_RATE(cf0, cf1, pv, type) {
+  if (type === 0) {
+    return cf1 / (pv - cf0)
+  }
+  return cf1 / pv
+}
+
 
 // Real Estate Fianace Stuff
 // /**
