@@ -77,7 +77,7 @@ function AVG_RETURN(x) {
 }
 
 /**
- * Calculate the average volatility of a stock [can differ from stdev.s], not recommended
+ * Calculate the average volatility of a stock
  * @customfunction
  * @param {number[][]} x 
  * @returns {number} The average volatility
@@ -102,8 +102,8 @@ function AVG_VOLATILITY(x) {
     // Calculating the sum of updated array
     let sum2 = xx.reduce((acc, curr) => acc + curr, 0);
 
-    // Returning the Standered deviation
-    return Math.sqrt(sum2 / xx.length)
+    // Returning the Standard deviation
+    return Math.sqrt(sum2 / (xx.length - 1))
   }
 
   const return_per_period = []
@@ -123,8 +123,8 @@ function AVG_VOLATILITY(x) {
   // Calculating the sum of updated array
   let sum2 = xx.reduce((acc, curr) => acc + curr, 0);
 
-  // Returning the Standered deviation
-  return Math.sqrt(sum2 / xx.length)
+  // Returning the Standard deviation
+  return Math.sqrt(sum2 / (xx.length - 1))
 }
 
 /**
